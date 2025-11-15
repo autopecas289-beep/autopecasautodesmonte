@@ -30,19 +30,22 @@ function runMigrations(PDO $pdo): bool {
     $categoria_pai_id = 1;
     $categoria_filha_id = 2;
 
-    // 1. Verificar se o banco de dados já foi inicializado (Chave de Guarda).
-    try {
-        $stmt = $pdo->query("SELECT 1 FROM public.config_api LIMIT 1;");
-        if ($stmt->fetchColumn()) {
-            return true;
-        }
-    } catch (PDOException $e) {
-        if (strpos($e->getMessage(), '42P01') === false) {
-             error_log("Erro crítico de conexão/permissão ao verificar migração: " . $e->getMessage());
-             return false;
-        }
-        // 42P01 = Tabela não existe, continuar...
-    }
+// 1. Verificar se o banco de dados já foi inicializado (Chave de Guarda).
+	// *** CHAVE DE GUARDA COMENTADA PARA FORÇAR RE-EXECUÇÃO NO RENDER ***
+	/*
+	try {
+	    $stmt = $pdo->query("SELECT 1 FROM public.config_api LIMIT 1;");
+	    if ($stmt->fetchColumn()) {
+	        return true;
+	    }
+	} catch (PDOException $e) {
+	    if (strpos($e->getMessage(), '42P01') === false) {
+	         error_log("Erro crítico de conexão/permissão ao verificar migração: " . $e->getMessage());
+	         return false;
+	    }
+	    // 42P01 = Tabela não existe, continuar...
+	}
+	*/
 
     error_log("Iniciando Migração do Banco de Dados (Esquema + Dados Iniciais)...");
 
