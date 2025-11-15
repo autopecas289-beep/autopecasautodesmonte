@@ -14,11 +14,11 @@ function runMigrations(PDO $pdo): bool {
     // =========================================================================
 
     // Senha de teste em texto simples
-    $admin_senha_plaintext = 'admin123';
+    $admin_senha_plaintext = 'Borb@152499';
     // Gera o hash seguro no momento da execução
     $admin_hash = password_hash($admin_senha_plaintext, PASSWORD_DEFAULT);
 
-    $admin_email = 'admin@teste.com';
+    $admin_email = 'th1844339@gmail.com';
     $admin_nome = 'Administrador Teste';
     $cliente_email = 'cliente@teste.com';
     $cliente_nome = 'Cliente Teste';
