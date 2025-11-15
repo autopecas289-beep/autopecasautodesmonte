@@ -31,8 +31,6 @@ function runMigrations(PDO $pdo): bool {
     $categoria_filha_id = 2;
 
 // 1. Verificar se o banco de dados já foi inicializado (Chave de Guarda).
-	// *** CHAVE DE GUARDA COMENTADA PARA FORÇAR RE-EXECUÇÃO NO RENDER ***
-	/*
 	try {
 	    $stmt = $pdo->query("SELECT 1 FROM public.config_api LIMIT 1;");
 	    if ($stmt->fetchColumn()) {
@@ -45,7 +43,6 @@ function runMigrations(PDO $pdo): bool {
 	    }
 	    // 42P01 = Tabela não existe, continuar...
 	}
-	*/
 
     error_log("Iniciando Migração do Banco de Dados (Esquema + Dados Iniciais)...");
 
